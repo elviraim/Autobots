@@ -204,15 +204,129 @@ public class String1 {
 
         return start + lastTwo.toString();
     }
+
     public String seeColor(String str) {
-if(str.startsWith("red")){
-    return "red";
-} else if(str.startsWith("blue")){
-    return "blue";
-}else {
-    return"";
-}
+        if (str.startsWith("red")) {
+            return "red";
+        } else if (str.startsWith("blue")) {
+            return "blue";
+        } else {
+            return "";
+        }
     }
+//    frontAgain("edited") → true
+//    frontAgain("edit") → false
+//    frontAgain("ed") → true
+public boolean frontAgain(String str) {
+    return (str.length()>=2 && str.substring(0,2).equals(str.substring(str.length()-2)));
+}
+//    minCat("Hello", "Hi") → "loHi"
+//    minCat("Hello", "java") → "ellojava"
+//    minCat("java", "Hello") → "javaello"
+public String minCat(String a, String b) {
+    int index = 0;
+    if (b.length() > a.length()) {
+        index = a.length();
+    } else {
+        index = b.length();
+    }
+    return a.substring(a.length() - index, a.length())
+            + b.substring(b.length() - index, b.length());
+}
+    public String extraFront(String str) {
+        if (str.length()>2){
+            return str.substring(0,2)+str.substring(0,2)+str.substring(0,2);
+        }else{
+            return str+str+str;
+        }
+    }
+    public String without2(String str) {
+        if(str.length()>2&& str.substring(0,2).equals(str.substring(str.length()-2))){
+            return str.substring(2);
+        }else if(str.length()>2&& !str.substring(0,2).equals(str.substring(str.length()-2))){
+            return str;
+        }else if(str.length()==2){
+            return "";
+        }else{
+            return str;
+        }
+    }
+    public String deFront(String str) {
+        if (str.length() >= 2) {
+            String front = str.substring(0, 2);
+            if (front.equalsIgnoreCase("ab")) {
+                return str;
+            } else if (front.substring(0, 1).equalsIgnoreCase("a")) {
+                return str.substring(0, 1) + str.substring(2);
+            } else if (front.substring(1, 2).equalsIgnoreCase("b")) {
+                return str.substring(1);
+            } else {
+                return str.substring(2);
+            }
+        } else {
+            return "";
+        }
+    }
+
+    public String startWord(String str, String word) {
+        if (str.length() >= word.length()) {
+            int index = word.length();
+            if (str.substring(1, index).equals(word.substring(1))) {
+                return str.substring(0, index);
+            } else {
+                return "";
+            }
+        } else {
+            return "";
+        }
+    }
+    public String withoutX(String str) {
+        if (str.length() == 0) {
+            return str;
+        }
+
+        // Remove first 'x' if present
+        if (str.startsWith("x")) {
+            str = str.substring(1);
+        }
+
+        // Remove last 'x' if present and string is still not empty
+        if (str.endsWith("x")) {
+            str = str.substring(0, str.length() - 1);
+        }
+
+        return str;
+    }
+    public String withoutX2(String str) {
+
+        int len = str.length();
+
+        if (len >= 2) {
+            String result = "";
+
+            if (str.charAt(0) != 'x') {
+                result += str.charAt(0);
+            }
+
+            if (str.charAt(1) != 'x') {
+                result += str.charAt(1);
+            }
+
+            result += str.substring(2);
+            return result;
+
+        } else if (len == 1) {
+            return str.charAt(0) == 'x' ? "" : str;
+        }
+        return str; // length == 0
+
+
+    }
+
+
+
+
+
 
 
 
